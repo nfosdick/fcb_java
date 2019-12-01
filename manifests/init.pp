@@ -1,3 +1,6 @@
 class fcb_java{
-  include java
+  case $facts['os']['name'] {
+    'RedHat', 'CentOS':  { include java  }
+    'Windows':           { include fcb_java::windows  }
+  }
 }
