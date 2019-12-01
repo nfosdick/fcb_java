@@ -2,6 +2,7 @@ class fcb_java::windows(
   $url              = 'https://s3.amazonaws.com/weslson.com',
   $destination_path = 'c:/larktemp',
   $install_version  = '8u231',
+  $registry_name    = "Java SE Development Kit 8 Update 231 (64-bit)",
   $java_version     = '8.0.2310.11',
   $architecture     = $facts['architecture'],
 ){
@@ -19,7 +20,7 @@ class fcb_java::windows(
     dsc_uri             => "${url}/jdk-${install_version}-windows-${architecture}.exe",
   }
 
-  package { "Java SE Development Kit 8 Update 231 (64-bit)":
+  package { $registry_name:
     ensure          => installed,
     source          => "${destination_path}/jdk-${install_version}-windows-${architecture}.exe",
     install_options => ['/s'],
