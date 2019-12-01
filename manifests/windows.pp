@@ -36,7 +36,7 @@ class fcb_java::windows(
   # https://stackoverflow.com/questions/24430141/downloading-jdk-using-powershell
   # https://github.com/cyberious/puppet-windows_java/blob/master/manifests/jdk.pp
   exec { "Install jdk-${install_version}-windows-${architecture}.exe":
-    command  => "Start-Process -FilePath ${destination_path}/jdk-${install_version}-windows-${architecture}.exe -ArgumentList '/s' -Wait",
+    command  => "Start-Process -FilePath ${destination_path}/jdk-${install_version}-windows-${architecture}.exe -ArgumentList '/s' -Wait;refreshenv",
     unless   => "if(Get-Command java | Select-Object Version|Select-String ${java_version}){ exit 0 }else{ exit 1 }",
     #unless   => 'if(Get-Command java | Select-Object Version|Select-String 8.0.2310.11){ exit 0 }else{ exit 1 }',
     provider => powershell,
