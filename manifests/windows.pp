@@ -40,5 +40,6 @@ class fcb_java::windows(
   #  unless   => "if(Get-Command java | Select-Object Version|Select-String ${java_version}){ exit 0 }else{ exit 1 }",
   #  #unless   => 'if(Get-Command java | Select-Object Version|Select-String 8.0.2310.11){ exit 0 }else{ exit 1 }',
   #  provider => powershell,
+  #  require         => Dsc_xremotefile[ "Download jdk-${install_version}-windows-${architecture}.exe" ],
   #}
 }
