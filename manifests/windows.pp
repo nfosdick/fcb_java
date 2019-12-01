@@ -37,7 +37,7 @@ class fcb_java::windows(
   # https://github.com/cyberious/puppet-windows_java/blob/master/manifests/jdk.pp
   exec { "Install jdk-${install_version}-windows-${architecture}.exe":
     command  => "Start-Process -FilePath ${destination_path}/jdk-${install_version}-windows-${architecture}.exe -ArgumentList '/s' -Wait",
-    unless   => "if(Get-Command java | Select-Object Version|Select-String ${java_version}){ exit 0 }else{ exit 1 }",
+    unless   => "if(Get-Command java | Select-Object Version|Select-String $java_version){ exit 0 }else{ exit 1 }",
     #unless   => 'if(Get-Command java | Select-Object Version|Select-String 8.0.2310.11){ exit 0 }else{ exit 1 }',
     provider => powershell,
   }
