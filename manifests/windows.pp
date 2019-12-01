@@ -19,14 +19,13 @@ class fcb_java::windows(
     dsc_uri             => "${url}/jdk-${install_version}-windows-${architecture}.exe",
   }
 
-#  package { "jdk-${install_version}-windows-${architecture}.exe":
-#    ensure          => installed,
-#    ensure          => '8.0.2310.11',
-#    source          => "${destination_path}/jdk-${install_version}-windows-${architecture}.exe",
-#    install_options => ['/s'],
-#    provider        => windows,
-#    require         => Dsc_xremotefile[ "Download jdk-${install_version}-windows-${architecture}.exe" ],
-#  }
+  package { "Java SE Development Kit 8 Update 231 (64-bit)":
+    ensure          => installed,
+    source          => "${destination_path}/jdk-${install_version}-windows-${architecture}.exe",
+    install_options => ['/s'],
+    #provider        => windows,
+    require         => Dsc_xremotefile[ "Download jdk-${install_version}-windows-${architecture}.exe" ],
+  }
 
   # https://stackoverflow.com/questions/18890926/how-to-get-the-java-version-in-powershell
   # https://github.com/counsyl/puppet-windows/blob/master/manifests/java.pp
@@ -35,10 +34,10 @@ class fcb_java::windows(
   # https://puppet.com/docs/puppet/latest/type.html#package
   # https://stackoverflow.com/questions/24430141/downloading-jdk-using-powershell
   # https://github.com/cyberious/puppet-windows_java/blob/master/manifests/jdk.pp
-  exec { "Install jdk-${install_version}-windows-${architecture}.exe":
-    command  => "Start-Process -FilePath ${destination_path}/jdk-${install_version}-windows-${architecture}.exe -ArgumentList '/s' -Wait;refreshenv",
-    unless   => "if(Get-Command java | Select-Object Version|Select-String ${java_version}){ exit 0 }else{ exit 1 }",
-    #unless   => 'if(Get-Command java | Select-Object Version|Select-String 8.0.2310.11){ exit 0 }else{ exit 1 }',
-    provider => powershell,
-  }
+  #exec { "Install jdk-${install_version}-windows-${architecture}.exe":
+  #  command  => "Start-Process -FilePath ${destination_path}/jdk-${install_version}-windows-${architecture}.exe -ArgumentList '/s' -Wait;refreshenv",
+  #  unless   => "if(Get-Command java | Select-Object Version|Select-String ${java_version}){ exit 0 }else{ exit 1 }",
+  #  #unless   => 'if(Get-Command java | Select-Object Version|Select-String 8.0.2310.11){ exit 0 }else{ exit 1 }',
+  #  provider => powershell,
+  #}
 }
