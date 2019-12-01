@@ -1,5 +1,5 @@
 class fcb_java::linux {
   class { 'java':
-    java_major_version => '1.7', 
+    package => 'java-1.7.0-openjdk-devel',
   }
 }
