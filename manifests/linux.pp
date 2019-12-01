@@ -1,3 +1,5 @@
 class fcb_java::linux {
-  include java
+  class { 'java':
+    java_major_version => '1.7', 
+  }
 }
