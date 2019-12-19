@@ -2,7 +2,8 @@ class fcb_java::windows(
   $url              = 'https://s3.amazonaws.com/weslson.com',
   $destination_path = 'c:/larktemp',
   $install_version  = '8u231',
-  $registry_name    = "Java SE Development Kit 8 Update 231 (64-bit)",
+  $registry_name,
+  #$registry_name    = "Java SE Development Kit 8 Update 231 (64-bit)",
   $java_version     = '8.0.2310.11',
   $architecture     = $facts['architecture'],
 ){
