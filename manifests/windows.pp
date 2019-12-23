@@ -1,24 +1,25 @@
 class fcb_java::windows(
-  $url              = 'https://s3.amazonaws.com/weslson.com',
+  #$url              = 'https://s3.amazonaws.com/weslson.com',
+  $url              = 'https://drive.google.com/open?id=12CTJaBIGysZ6DJD41cYm1OyhJ-88fCGW',
   $destination_path = 'c:/larktemp',
   $install_version  = '8u231',
-  $registry_name,
-  #$registry_name    = "Java SE Development Kit 8 Update 231 (64-bit)",
+  #$registry_name,
+  $registry_name    = "Java SE Development Kit 8 Update 231 (64-bit)",
   $java_version     = '8.0.2310.11',
   $architecture     = $facts['architecture'],
 ){
-
-
+  $uri = $url
+  #$uri = "${url}/jdk-${install_version}-windows-${architecture}.exe" 
   # Manual Run
+  # $url="https://drive.google.com/open?id=12CTJaBIGysZ6DJD41cYm1OyhJ-88fCGW"
+  # $parent="c:/larktemp"
   # $file="jdk-8u231-windows-x64.exe"
-  # $url="https://s3.amazonaws.com/weslson.com/$file"
   # $wc = New-Object net.webclient
   # $wc.Downloadfile("${url}", "c:\${parentdir}\${file}")
-  # $wc = New-Object net.webclient
   # Start-Process msiexec.exe -Wait -ArgumentList "/I c:\larktemp\jdk-8u231-windows-x64.exe /s"
   dsc_xremotefile {"Download jdk-${install_version}-windows-${architecture}.exe":
     dsc_destinationpath => "${destination_path}/jdk-${install_version}-windows-${architecture}.exe",
-    dsc_uri             => "${url}/jdk-${install_version}-windows-${architecture}.exe",
+    dsc_uri             => $url,
   }
 
   package { $registry_name:
