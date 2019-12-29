@@ -7,8 +7,13 @@ class fcb_java::windows(
   $jre_home,
   $architecture     = $facts['architecture'],
 ){
-  windows_env { "JAVA_HOME=${java_home}":}
-  windows_env { "JRE_HOME=${jre_home}":}
+  windows_env { "JAVA_HOME=${java_home}":
+    mergemode => clobber,
+  }
+
+  windows_env { "JRE_HOME=${jre_home}":
+    mergemode => clobber,
+  }
 
   dsc_xremotefile {"Download jdk-${install_version}-windows-${architecture}.exe":
     dsc_destinationpath => "${destination_path}/jdk-${install_version}-windows-${architecture}.exe",
