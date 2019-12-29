@@ -3,7 +3,6 @@ class fcb_java::windows(
   $destination_path,
   $install_version,
   $registry_name,
-  $java_version,
   $architecture     = $facts['architecture'],
   #$url              = 'https://larkfileshare.blob.core.windows.net/jdk',
   #$destination_path = 'c:/larktemp',
