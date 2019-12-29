@@ -1,6 +1,5 @@
 class fcb_java::windows(
-  #$url              = 'https://s3.amazonaws.com/weslson.com',
-  $url              = 'https://drive.google.com/open?id=12CTJaBIGysZ6DJD41cYm1OyhJ-88fCGW',
+  $url              = 'https://larkfileshare.blob.core.windows.net/jdk',
   $destination_path = 'c:/larktemp',
   $install_version  = '8u231',
   #$registry_name,
@@ -19,7 +18,7 @@ class fcb_java::windows(
   # Start-Process msiexec.exe -Wait -ArgumentList "/I c:\larktemp\jdk-8u231-windows-x64.exe /s"
   dsc_xremotefile {"Download jdk-${install_version}-windows-${architecture}.exe":
     dsc_destinationpath => "${destination_path}/jdk-${install_version}-windows-${architecture}.exe",
-    dsc_uri             => $url,
+    dsc_uri             => "${url}/jdk-${install_version}-windows-${architecture}.exe",
   }
 
   package { $registry_name:
