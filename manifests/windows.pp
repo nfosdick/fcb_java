@@ -6,7 +6,7 @@ class fcb_java::windows(
   $java_home,
   $architecture     = $facts['architecture'],
 ){
-  windows_env { "PATH=${java_home}": }
+  windows_env { "PATH=${java_home}": ensure => absent}
 
   dsc_xremotefile {"Download jdk-${install_version}-windows-${architecture}.exe":
     dsc_destinationpath => "${destination_path}/jdk-${install_version}-windows-${architecture}.exe",
