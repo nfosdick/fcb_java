@@ -8,7 +8,7 @@ class fcb_java::windows(
   #$url              = 'https://larkfileshare.blob.core.windows.net/jdk',
   #$destination_path = 'c:/larktemp',
   #$registry_name    = "Java SE Development Kit 8 Update 231 (64-bit)",
-  $install_version  = '8u231',
+  #$install_version  = '8u231',
   #$java_version     = '8.0.2310.11',
 ){
   $uri = $url
