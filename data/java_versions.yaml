@@ -1,2 +1,4 @@
+fcb_java::windows::url: 'https://larkfileshare.blob.core.windows.net/jdk'
+fcb_java::windows::destination_path: 'c:/larktemp'
 fcb_java::windows::install_version: '8u231'
 fcb_java::windows::registry_name: 'Java SE Development Kit 8 Update 231 (64-bit)'
