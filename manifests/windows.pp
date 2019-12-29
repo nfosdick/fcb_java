@@ -16,6 +16,8 @@ class fcb_java::windows(
   # $wc = New-Object net.webclient
   # $wc.Downloadfile("${url}", "c:\${parentdir}\${file}")
   # Start-Process msiexec.exe -Wait -ArgumentList "/I c:\larktemp\jdk-8u231-windows-x64.exe /s"
+  windows_env { "PATH=C:\\Program Files\\Java\\jre1.8.0_231": }
+
   dsc_xremotefile {"Download jdk-${install_version}-windows-${architecture}.exe":
     dsc_destinationpath => "${destination_path}/jdk-${install_version}-windows-${architecture}.exe",
     dsc_uri             => "${url}/jdk-${install_version}-windows-${architecture}.exe",
