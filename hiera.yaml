@@ -6,6 +6,9 @@ defaults:
   data_hash: yaml_data
 
 hierarchy:
-  - name: "In module hierarchy"
+  - name: "Linux Defaults"
     paths:
-      - "java_versions.yaml"
+      - "linux_defaults.yaml"
+  - name: "Windows Defaults"
+    paths:
+      - "windows_defaults.yaml"
