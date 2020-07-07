@@ -10,7 +10,7 @@
 
 ## Overview
 
-This module installs java on Windows or Linux platforms.  The init.pp makes use of OS.Name fact to determine the proper way to install Java.
+This module installs java on Windows or Linux platforms.  The init.pp makes use of OS.Name fact to simplify implementation and determine the proper way to install Java.
 
 ## Module Description
 
