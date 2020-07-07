@@ -30,7 +30,7 @@ The paramaters available are any of the valid parameters to the Java forge modul
 The Windows installation makes use of custom install manifests as there was not an existing forge module for install Java on Windows.
 
 ## Setup
-These modules are prerequisites for this module to function properly.
+These fcb_java module prerequisites for this module to function properly.
 ```
 puppet module install puppetlabs-java --version 6.3.0
 puppet module install puppetlabs-dsc --version 1.9.3
@@ -55,7 +55,8 @@ hierarchy:
     paths:
       - "windows_defaults.yaml"
 ```
-### Linux Default - defaults.yaml
+### Linux Default - linux_defaults.yaml
+The primary goal of this linux_defaults.yaml file is to avoid updating the forge module to set FCB specific defaults.  This will help future proof this module for updates to the forge module.  t
 ```
 java::distribution: 'jre'
 java::package: 'java-1.8.0-openjdk-devel'
