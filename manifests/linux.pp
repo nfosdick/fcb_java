@@ -1,7 +1,7 @@
 class fcb_java::linux(
   $config,
 ){
-  java { 'java':
+  class{ 'java':
     * => $config,
   }
 }
