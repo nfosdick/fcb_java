@@ -1,3 +1,7 @@
-class fcb_java::linux {
-  include java
+class fcb_java::linux(
+  $config,
+){
+  java { 'java install':
+    * => $config,
+  }
 }
